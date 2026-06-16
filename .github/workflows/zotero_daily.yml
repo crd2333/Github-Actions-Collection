@@ -33,6 +33,12 @@ jobs:
         with:
           version: '0.5.4'
 
+      - name: Cache Hugging Face
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-${{ runner.os }}-jinaai-jina-embeddings-v5-text-nano-retrieval-v1
+
       - name: Run script
         env:
           ZOTERO_ID: ${{ secrets.ZOTERO_ID }}
